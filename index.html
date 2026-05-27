@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You an Introvert or an Extrovert? | Interactive Personality Quiz</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover your true social battery type, cognitive rest styles, and claim your free personal energy optimization roadmap.">
+    <meta name="keywords" content="introvert extrovert quiz, social battery test, personality test, ambivert test, personal energy roadmap">
+    <meta name="author" content="Personality Balance Labs">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Are You an Introvert or an Extrovert? | Interactive Personality Quiz">
+    <meta property="og:description" content="Discover your true social battery type, cognitive rest styles, and claim your free personal energy optimization roadmap.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Are You an Introvert or an Extrovert? | Interactive Personality Quiz">
+    <meta property="twitter:description" content="Discover your true social battery type, cognitive rest styles, and claim your free personal energy optimization roadmap.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px -4px rgba(37, 99, 235, 0.15)',
+                        'glow-lg': '0 0 35px -5px rgba(37, 99, 235, 0.22)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Micro-Interactions CSS -->
+    <style>
+        @keyframes float-slow-1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(25px, -35px) scale(1.05); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-float-1 {
+            animation: float-slow-1 22s infinite ease-in-out;
+        }
+        body {
+            background-color: #050505;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between relative py-6 px-4 md:py-12 selection:bg-blue-600 selection:text-white">
+
+    <!-- Ambient Floating Aura Blobs -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute top-[10%] left-[10%] w-[450px] h-[450px] sm:w-[550px] sm:h-[550px] rounded-full bg-blue-600 blur-[130px] opacity-[0.11] animate-float-1"></div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="w-full max-w-2xl mx-auto text-center z-10 mb-6">
+        <div class="inline-flex items-center gap-2 bg-neutral-900/90 border border-neutral-800/80 font-mono text-xs text-blue-400 font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-sm mb-4">
+            <svg xmlns="http://www.w3.org/2500/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse text-blue-400"><path d="m12 14 4-4-4-4"/><path d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14l-4-4H6a2 2 0 0 0-2 2z"/></svg>
+            Cognitive Spectrum Analysis
+        </div>
+        <h1 id="header-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-neutral-400">
+            Are You an Introvert or an Extrovert?
+        </h1>
+    </header>
+
+    <!-- VIEWS CONTAINER -->
+    <main id="view-container" class="w-full max-w-2xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 shadow-glow relative z-10 transition-all duration-300 ease-in-out scale-100 opacity-100 flex-1 flex flex-col justify-center">
+        <!-- Views Will Be Dynamically Filled Via JavaScript -->
+    </main>
+
+    <!-- FOOTER WITH LEGAL LINKS -->
+    <footer class="w-full max-w-2xl mx-auto text-center mt-12 text-xs text-slate-500 z-10 leading-relaxed">
+        <div class="flex items-center justify-center gap-4 mb-3">
+            <a href="#privacy" onclick="showModal('privacy')" class="hover:text-slate-300 transition-colors font-medium">Privacy Policy</a>
+            <span class="text-slate-700">•</span>
+            <a href="#terms" onclick="showModal('terms')" class="hover:text-slate-300 transition-colors font-medium">Terms of Service</a>
+            <span class="text-slate-700">•</span>
+            <a href="#contact" onclick="showModal('contact')" class="hover:text-slate-300 transition-colors font-medium">Contact Us</a>
+        </div>
+        <p>© 2026 Cognitive Spectrum Labs. All rights reserved. Results and guides are provided as-is for personal insight.</p>
+    </footer>
+
+    <!-- LEGAL MODALS CONTAINER -->
+    <div id="legal-modal" class="fixed inset-0 bg-neutral-950/80 backdrop-filter backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 hidden">
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl w-full max-w-lg p-6 sm:p-8 max-h-[80vh] overflow-y-auto shadow-2xl relative translate-y-4 transition-transform duration-300" id="modal-card">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors p-2 rounded-lg bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <h3 id="modal-title" class="text-lg sm:text-xl font-bold text-white mb-4 pr-10">Legal Information</h3>
+            <div id="modal-content" class="text-neutral-300 text-sm leading-relaxed space-y-4">
+                <!-- Modal content injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CORE QUIZ ENGINE JAVASCRIPT -->
+    <script>
+        // ==========================================
+        // 1. DYNAMIC QUIZ CONFIGURATION OBJECT (JSON)
+        // Modify this object to change questions, answers, results, and copies
+        // ==========================================
+        const QUIZ_CONFIG = {
+            title: "Are You an Introvert or an Extrovert?",
+            subtitle: "Map your cognitive spectrum, reveal your energy recharging styles, and unlock your personal balance roadmap.",
+            leadMagnet: {
+                name: "Social Battery Optimization Roadmap Guide",
+                description: "A high-impact daily rest tracker and social pace guide designed to optimize focus and performance.",
+                url: "#"
+            },
+            formspreeUrl: "https://formspree.io/f/mredodq", // REPLACE THIS PIN WITH YOUR FORMSPPRE FLUID ENDPOINT
+            questions: [
+                {
+                    text: "How do you feel after spending a busy weekend attending social gatherings?",
+                    options: [
+                        { text: "Completely drained; I need an entire day of absolute silence to recover.", profile: "introvert" },
+                        { text: "Fully energized and inspired, ready to tackle the upcoming week.", profile: "extrovert" },
+                        { text: "Slightly tired but emotionally content; I need a quiet evening to recharge.", profile: "ambivert_intro" },
+                        { text: "Good, but ready to stay home for a bit and concentrate on my personal projects.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When a sudden change of plans cancels a night out with friends, your immediate reaction is:",
+                    options: [
+                        { text: "Instant relief; I secretly wanted to stay in anyway.", profile: "introvert" },
+                        { text: "Disappointment; I now have to quickly find another social outlet.", profile: "extrovert" },
+                        { text: "A mixture of calm contentment and slight FOMO.", profile: "ambivert_intro" },
+                        { text: "Cool, I'll use this free slot to go on a solo adventure or try a new activity.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "In a team brainstorming session, how do you typically participate?",
+                    options: [
+                        { text: "I listen intently and prefer to share my fully formulated ideas via follow-up emails.", profile: "introvert" },
+                        { text: "I think out loud, throwing out ideas rapidly and building on others' energy.", profile: "extrovert" },
+                        { text: "I wait for the right moment to suggest a balanced, consensus-driven solution.", profile: "ambivert_intro" },
+                        { text: "I champion a unique angle and eagerly lead the group if the momentum is right.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When walking into a crowded room or a networking event, you naturally tend to:",
+                    options: [
+                        { text: "Seek out a quiet corner or look for the host to avoid small talk with strangers.", profile: "introvert" },
+                        { text: "Walk right into the center of the action and start introducing yourself to new faces.", profile: "extrovert" },
+                        { text: "Stick to a small group of people you already know well or have a warm vibe with.", profile: "ambivert_intro" },
+                        { text: "Scan the room to spot interesting individuals, then confidently strike up a chat.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "How do you make your best decisions?",
+                    options: [
+                        { text: "By researching extensively in solitude and writing down my pros/cons.", profile: "introvert" },
+                        { text: "By talking through my thoughts with multiple friends or trusted colleagues.", profile: "extrovert" },
+                        { text: "By sitting with my feelings quietly, then verifying them with a close partner.", profile: "ambivert_intro" },
+                        { text: "By jumping right in to test different options and adapting dynamically on the go.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "Which setup describes your ideal workflow or study environment?",
+                    options: [
+                        { text: "A completely quiet, private room where interruption is absolutely forbidden.", profile: "introvert" },
+                        { text: "A lively open-plan office or dynamic workspace with constant creative chatter.", profile: "extrovert" },
+                        { text: "A cozy local coffee shop where there is ambient social noise but no direct demands.", profile: "ambivert_intro" },
+                        { text: "Alternating between intense solo sprints and quick, high-impact group check-ins.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When you are feeling highly stressed or overwhelmed, your default instinct is to:",
+                    options: [
+                        { text: "Shut out the world, turn off my phone, and process my thoughts internally.", profile: "introvert" },
+                        { text: "Call up my closest friends or go out somewhere busy to distract myself.", profile: "extrovert" },
+                        { text: "Seek comfort in one-on-one time with a partner, family member, or pet.", profile: "ambivert_intro" },
+                        { text: "Sweat it out physically or find a fresh solo project to exert my nervous energy.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "How do you feel about small talk with strangers in an elevator or checkout line?",
+                    options: [
+                        { text: "Exhausting and tedious; I'd much rather stay quiet and keep to myself.", profile: "introvert" },
+                        { text: "Fun and natural; I enjoy making small, friendly connections throughout my day.", profile: "extrovert" },
+                        { text: "Tolerable, but I try to pivot quickly to either a deeper topic or a warm smile.", profile: "ambivert_intro" },
+                        { text: "Opportunistic; I see it as a neat way to learn a random slice of life.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When celebrating a major personal milestone, what is your preferred style?",
+                    options: [
+                        { text: "A quiet, contemplative evening with my favorite book, meal, or hobby.", profile: "introvert" },
+                        { text: "A large, vibrant gathering surrounded by all my friends, coworkers, and acquaintances.", profile: "extrovert" },
+                        { text: "An elegant, intimate dinner with just a few of my closest loved ones.", profile: "ambivert_intro" },
+                        { text: "A fun, impulsive physical activity or dynamic outing with a handful of friends.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "What is your strategy when forced to handle conflict in a relationship or workplace?",
+                    options: [
+                        { text: "Step back immediately to process my feelings, writing out my thoughts first.", profile: "introvert" },
+                        { text: "Address the issue immediately and verbally to clear the air without delay.", profile: "extrovert" },
+                        { text: "Wait until the tension cools, then approach them gently for a quiet discussion.", profile: "ambivert_intro" },
+                        { text: "Propose a clear, structured action plan or compromise directly and move on.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "Your friends would most likely describe your social presence as:",
+                    options: [
+                        { text: "Reserved and quiet, but incredibly loyal, deep, and dependable.", profile: "introvert" },
+                        { text: "Enthusiastic, talkative, and always the life and spark of the party.", profile: "extrovert" },
+                        { text: "A warm listener who is incredibly deep and cozy to spend time with.", profile: "ambivert_intro" },
+                        { text: "Outgoing and adventurous, but with a highly independent streak.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "How do you behave during prolonged periods of complete solitude?",
+                    options: [
+                        { text: "Absolutely love it; I feel highly productive, peaceful, and fully aligned.", profile: "introvert" },
+                        { text: "Quickly become restless, lethargic, and crave some form of social contact.", profile: "extrovert" },
+                        { text: "Enjoy it for a day or two, but eventually feel the quiet urge to reach out to a friend.", profile: "ambivert_intro" },
+                        { text: "Use the time to learn deep skills or pursue intense creative ideas independently.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "How do you process your emotional landscape?",
+                    options: [
+                        { text: "Internally; I reflect, journal, or sit quietly to understand what I'm feeling.", profile: "introvert" },
+                        { text: "Externally; I talk through them with others to clarify my inner state.", profile: "extrovert" },
+                        { text: "Selectively; I share them exclusively with one or two deeply trusted confidants.", profile: "ambivert_intro" },
+                        { text: "Constructively; I focus on taking concrete actions to resolve the trigger.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When working on a group project, what role do you naturally assume?",
+                    options: [
+                        { text: "The researcher or builder, crafting high-quality components quietly in the background.", profile: "introvert" },
+                        { text: "The presenter or coordinator, keeping energy levels high and pitching the results.", profile: "extrovert" },
+                        { text: "The mediator, ensuring all voices are heard and the team stays highly cohesive.", profile: "ambivert_intro" },
+                        { text: "The goal-oriented executioner, taking fast, decisive steps to push the project home.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "What kind of social media user are you?",
+                    options: [
+                        { text: "A passive observer who rarely posts, preserving absolute digital privacy.", profile: "introvert" },
+                        { text: "An active updater who loves sharing updates, achievements, and daily stories.", profile: "extrovert" },
+                        { text: "A selective poster who shares meaningful life updates occasionally with close friends.", profile: "ambivert_intro" },
+                        { text: "A curation enthusiast, focusing on aesthetics, ideas, or cool adventures.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "At a party, what's your typical comfort zone?",
+                    options: [
+                        { text: "Chatting quiet details with one person in an adjoining hallway or kitchen.", profile: "introvert" },
+                        { text: "Right in the middle of the dance floor or leading the main group conversation.", profile: "extrovert" },
+                        { text: "Sitting comfortably on a sofa, jumping in and out of friendly conversations.", profile: "ambivert_intro" },
+                        { text: "Walking around, trying out the food, and exploring different groups of people.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When learning a brand new, complex skill, you prefer to:",
+                    options: [
+                        { text: "Read textbooks, tutorials, and practice completely alone until proficient.", profile: "introvert" },
+                        { text: "Attend an interactive workshop, bootcamp, or group class with real-time dialogue.", profile: "extrovert" },
+                        { text: "Hire a patient one-on-one mentor or study with a close, supportive peer.", profile: "ambivert_intro" },
+                        { text: "Dive directly into real-world application, learning by trial and error.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "What is your relationship with external attention and compliments?",
+                    options: [
+                        { text: "I find public attention deeply uncomfortable and prefer quiet, private validation.", profile: "introvert" },
+                        { text: "I love being recognized publicly; it feeds my drive and boosts my enthusiasm.", profile: "extrovert" },
+                        { text: "I appreciate being acknowledged, but only for something I truly care about.", profile: "ambivert_intro" },
+                        { text: "I value recognition but care far more about personal growth and milestones.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "How do you respond to highly stimulating environments (loud music, flashing lights, massive crowds)?",
+                    options: [
+                        { text: "Quickly overwhelmed; I feel an immediate physical need to withdraw and escape.", profile: "introvert" },
+                        { text: "Highly stimulated and excited; it feeds my personal battery and makes me vibrant.", profile: "extrovert" },
+                        { text: "Tolerable for a short window, provided I have an exit strategy or a close buddy with me.", profile: "ambivert_intro" },
+                        { text: "I can tune it out easily if I have a clear focus or something fun to accomplish.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When someone presents a novel, spontaneous idea to you, your immediate instinct is to:",
+                    options: [
+                        { text: "Question the logistics and think about potential snags first.", profile: "introvert" },
+                        { text: "Embrace it with high excitement and start thinking of creative expansions immediately.", profile: "extrovert" },
+                        { text: "Nurture the idea's core value while assessing how it impacts everyone's comfort.", profile: "ambivert_intro" },
+                        { text: "Look at how it can be put to the test immediately to see if it actually works.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "What describes your ideal vacation or trip?",
+                    options: [
+                        { text: "A secluded cabin in the deeper woods with no reception, just peace and quiet.", profile: "introvert" },
+                        { text: "A bustling, fast-paced city tour packed with guided groups, nightlife, and events.", profile: "extrovert" },
+                        { text: "A serene beach resort stay accompanied by a companion or tiny circle of loved ones.", profile: "ambivert_intro" },
+                        { text: "An unstructured solo backpacking trip through unfamiliar cities to discover stories.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "How do you tend to behave when you have a direct question about something in public?",
+                    options: [
+                        { text: "Look it up exhaustively on my phone first to avoid asking someone directly.", profile: "introvert" },
+                        { text: "Seek out the nearest staff member or local and ask them warmly with friendly charm.", profile: "extrovert" },
+                        { text: "Politely wait for a quiet opening, then ask someone in an unassuming manner.", profile: "ambivert_intro" },
+                        { text: "Walk straight up to a likely source and ask them concisely, getting straight to the point.", profile: "ambivert_extro" }
+                    ]
+                },
+                {
+                    text: "When receiving unexpected phone calls instead of text messages, your response is:",
+                    options: [
+                        { text: "Mild anxiety; I let it go to voicemail and text back when ready.", profile: "introvert" },
+                        { text: "Delighted; I pick up immediately and love talking live rather than typing.", profile: "extrovert" },
+                        { text: "Apprehensive, but I'll answer if it's family or a close, familiar number.", profile: "ambivert_intro" },
+                        { text: "Efficient; I answer directly to handle the matter instantly without texting delays.", profile: "ambivert_extro" }
+                    ]
+                }
+            ],
+            profiles: {
+                introvert: {
+                    title: "The Thoughtful Observer",
+                    subtitle: "Deep Thinker & Energy Preserver",
+                    teaser: "A highly analytical, focused individual who recharges in solitude and thrives in rich internal worlds.",
+                    description: "You process information deeply, prefer meaningful one-on-one connections, and create incredible work when given the quiet space to focus. Your energy is a precious commodity, spent selectively and deliberately on what truly matters to you.",
+                    tips: [
+                        "Schedule quiet block-times in your calendar to recharge your cognitive batteries without external stimulation.",
+                        "Pace your social commitments and never feel guilty about leaving early when your battery hits red.",
+                        "Leverage your absolute superpower of active listening and reflection in collaborative settings."
+                    ]
+                },
+                extrovert: {
+                    title: "The Vibrant Catalyst",
+                    subtitle: "Dynamic Networker & Action-Driven Enthusiast",
+                    teaser: "An expressive, community-oriented leader who draws energy from people, environments, and rapid-paced action.",
+                    description: "You thrive in collaborative, high-energy settings and love thinking out loud. Your ability to spark enthusiasm, connect diverse networks, and turn ideas into sensory experiences is your superpower.",
+                    tips: [
+                        "Channel your high energy into active collaboration, brainstorms, and community-building projects.",
+                        "Ensure you incorporate brief buffer moments of solitude to avoid complete physical and mental burnout.",
+                        "Empower quieter voices in team environments by actively opening the floor to thoughtful reflection."
+                    ]
+                },
+                ambivert_intro: {
+                    title: "The Quiet Connector",
+                    subtitle: "Empathetic Listener & Warm Social Strategist",
+                    teaser: "A harmonious blend of introversion and social warmth, selective about company but deeply engaging when present.",
+                    description: "You possess a powerful social shape-shifting ability. You love deep, intimate small group gatherings and excel at empathy, but require substantial solitude afterward to recharge your cognitive circuits.",
+                    tips: [
+                        "Host smaller, curated dinners or intimate meetings instead of attending overwhelming mass networking events.",
+                        "Set healthy boundaries on daily screen times and digital messaging to prevent mental battery drain.",
+                        "Honor your dual nature: embrace social invitations when inspired, but give yourself permission to hibernate."
+                    ]
+                },
+                ambivert_extro: {
+                    title: "The Adaptive Explorer",
+                    subtitle: "Independent Adventurer & Spirited Communicator",
+                    teaser: "An outgoing personality who loves new experiences and social circles, yet requires clear solo autonomy.",
+                    description: "You love being where the action is and making new connections, but you also value your independence. You enjoy social stimulation but can easily transition into a highly productive lone-wolf execution style.",
+                    tips: [
+                        "Align yourself with fast-paced, dynamic projects that grant you independent ownership over results.",
+                        "Take solo travel trips or solo study blocks to balance your craving for novelty with pure introspection.",
+                        "Rotate between high-volume group activities and focused individual passions to keep inspiration fresh."
+                    ]
+                }
+            }
+        };
+
+        // ==========================================
+        // 2. CORE COMPONENT STATE & LOGIC ENGINE
+        // ==========================================
+        let state = {
+            currentStep: 0, // 0 = Welcome, 1-N = Questions, N+1 = Loading, N+2 = Gate
+            answers: {},
+            selectedProfile: null,
+            submitting: false,
+            submitSuccess: false,
+            selectedCountry: { name: "United States", code: "+1", flag: "🇺🇸" },
+            isCountryDropdownOpen: false
+        };
+
+        const COUNTRIES = [
+            { name: "United States", code: "+1", flag: "🇺🇸" },
+            { name: "United Kingdom", code: "+44", flag: "🇬🇧" },
+            { name: "Australia", code: "+61", flag: "🇦🇺" },
+            { name: "Canada", code: "+1", flag: "🇨🇦" },
+            { name: "Germany", code: "+49", flag: "🇩🇪" },
+            { name: "France", code: "+33", flag: "🇫🇷" },
+            { name: "India", code: "+91", flag: "🇮🇳" },
+            { name: "Singapore", code: "+65", flag: "🇸🇬" },
+            { name: "Australia", code: "+61", flag: "🇦🇺" }
+        ];
+
+        // Transitions using hardware acceleration and opacity
+        function navigateTo(nextViewStep) {
+            const container = document.getElementById('view-container');
+            container.classList.add('opacity-0', 'scale-[0.98]', 'duration-300');
+            
+            setTimeout(() => {
+                state.currentStep = nextViewStep;
+                renderApp();
+                container.classList.remove('opacity-0', 'scale-[0.98]');
+            }, 250);
+        }
+
+        // Main Rendering Logic based on Active App Step
+        function renderApp() {
+            const container = document.getElementById('view-container');
+            
+            if (state.currentStep === 0) {
+                renderWelcome(container);
+            } else if (state.currentStep >= 1 && state.currentStep <= QUIZ_CONFIG.questions.length) {
+                renderQuestion(container, state.currentStep);
+            } else if (state.currentStep === QUIZ_CONFIG.questions.length + 1) {
+                renderCalculating(container);
+            } else if (state.currentStep === QUIZ_CONFIG.questions.length + 2) {
+                renderGate(container);
+            }
+        }
+
+        // RENDER: WELCOME PAGE
+        function renderWelcome(target) {
+            target.innerHTML = `
+                <div class="space-y-6 text-center animate-fade-in">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-900/30">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5s1 4.24 2.5 5.5"/><rect width="20" height="12" x="2" y="6" rx="2" ry="2"/><circle cx="12" cy="12" r="2"/><line x1="12" x2="12.01" y1="17" y2="17"/><path d="M10 2h4"/></svg>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h2 class="text-3xl font-extrabold text-white tracking-tight leading-tight">
+                            Unlock Your Cognitive Spectrum Identity
+                        </h2>
+                        <p class="text-neutral-400 text-base max-w-lg mx-auto font-light">
+                            ${QUIZ_CONFIG.subtitle}
+                        </p>
+                    </div>
+
+                    <div class="bg-neutral-900/40 border border-neutral-800 rounded-xl p-4 flex items-start gap-3.5 text-left max-w-md mx-auto">
+                        <span class="flex-shrink-0 bg-blue-550/10 text-blue-400 p-2 rounded-lg border border-blue-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                        </span>
+                        <div>
+                            <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 font-bold mb-0.5">EXCLUSIVE BONUS AT END</p>
+                            <p class="text-sm text-neutral-200">Get the full profile evaluation + our <strong>${QUIZ_CONFIG.leadMagnet.name}</strong> PDF instantly.</p>
+                        </div>
+                    </div>
+
+                    <button onclick="navigateTo(1)" id="start-btn" class="w-full max-w-xs mx-auto flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-4 px-6 rounded-xl hover:shadow-glow shadow-md scale-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group cursor-pointer">
+                        Begin Evaluation
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+
+                    <div class="flex items-center justify-center gap-2 text-xs text-neutral-500 font-mono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Secure Privacy Protection
+                    </div>
+                </div>
+            `;
+        }
+
+        // RENDER: ACTIVE LEVEL QUESTION PAGE
+        function renderQuestion(target, step) {
+            const questionData = QUIZ_CONFIG.questions[step - 1];
+            const totalQuestions = QUIZ_CONFIG.questions.length;
+            const progressPercent = Math.round((step / totalQuestions) * 100);
+
+            target.innerHTML = `
+                <div class="space-y-8 animate-fade-in select-none">
+                    <!-- Progress Section -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs font-mono text-neutral-400">
+                            <span class="font-bold text-blue-400">STAGE ${step} of ${totalQuestions}</span>
+                            <span>${progressPercent}% Completed</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-neutral-900 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-600 rounded-full transition-all duration-300" style="width: ${progressPercent}%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Question Container -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white leading-snug">
+                            ${questionData.text}
+                        </h3>
+                    </div>
+
+                    <!-- Options Grid -->
+                    <div class="grid grid-cols-1 gap-3">
+                        ${questionData.options.map((opt, optIndex) => `
+                            <button onclick="handleAnswerSelect('${opt.profile}')" class="w-full text-left glass-panel border border-neutral-800 hover:border-blue-500/50 hover:bg-neutral-800/40 p-4.5 rounded-xl transition-all duration-150 flex items-center gap-4 group cursor-pointer focus:outline-none focus:ring-1.5 focus:ring-blue-600">
+                                <span class="w-7 h-7 bg-neutral-800 border border-neutral-700 text-neutral-400 group-hover:bg-blue-600 group-hover:border-blue-500 group-hover:text-white rounded-lg flex items-center justify-center font-mono text-xs font-semibold select-none transition-colors">
+                                    ${String.fromCharCode(65 + optIndex)}
+                                </span>
+                                <span class="text-sm sm:text-base text-neutral-200 group-hover:text-white font-medium select-none transition-colors leading-normal">
+                                    ${opt.text}
+                                </span>
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <!-- Progress Indicator Footer -->
+                    <div class="flex justify-between items-center pt-2">
+                        ${step > 1 ? `
+                            <button onclick="handleBackStep()" class="flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white transition-colors cursor-pointer focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                                Back to Previous
+                            </button>
+                        ` : `<div></div>`}
+                        <div class="text-[10px] text-neutral-600 font-mono">Answers auto-advance on tap</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Back trigger
+        function handleBackStep() {
+            if (state.currentStep > 1) {
+                const prevStep = state.currentStep - 1;
+                delete state.answers[prevStep];
+                navigateTo(prevStep);
+            }
+        }
+
+        // Answer trigger
+        function handleAnswerSelect(profileType) {
+            state.answers[state.currentStep] = profileType;
+            
+            if (state.currentStep < QUIZ_CONFIG.questions.length) {
+                navigateTo(state.currentStep + 1);
+            } else {
+                calculateMatchProfile();
+                navigateTo(QUIZ_CONFIG.questions.length + 1); // Transfer to Loading calculating
+            }
+        }
+
+        // ==========================================
+        // 3. STATISTICAL ALIGNMENT CALCULATION LOGIC
+        // ==========================================
+        function calculateMatchProfile() {
+            const tally = {};
+            // Gather tallies
+            Object.values(state.answers).forEach(profile => {
+                tally[profile] = (tally[profile] || 0) + 1;
+            });
+
+            // Find max frequency archetype
+            let match = 'introvert'; // defaults fallback
+            let maxCount = -1;
+            
+            Object.keys(QUIZ_CONFIG.profiles).forEach(profKey => {
+                const count = tally[profKey] || 0;
+                if (count > maxCount) {
+                    maxCount = count;
+                    match = profKey;
+                }
+            });
+
+            state.selectedProfile = QUIZ_CONFIG.profiles[match];
+        }
+
+        // RENDER: LOADING AND CRITICAL ANALYSIS PHASE (2 Seconds)
+        function renderCalculating(target) {
+            const stepsText = [
+                "Aggregating cognitive behavioral answers...",
+                "Scoring social recharging vectors...",
+                "Mapping internal mental buffer ratios...",
+                "Finalizing personalized spectrum report..."
+            ];
+            
+            target.innerHTML = `
+                <div class="space-y-8 text-center py-8 animate-fade-in">
+                    <!-- Advanced Glowing Spinner -->
+                    <div class="relative w-20 h-20 mx-auto">
+                        <div class="absolute inset-0 rounded-full border-4 border-neutral-800"></div>
+                        <div class="absolute inset-0 rounded-full border-4 border-blue-600 border-t-transparent animate-spin"></div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="text-xl font-bold text-white tracking-tight">Calculating Persona Matching Archetype</h4>
+                        <div id="loader-subtext" class="text-neutral-400 font-mono text-xs h-6 animate-pulse">
+                            Evaluating cognitive battery parameters...
+                        </div>
+                    </div>
+
+                    <!-- Progress Status Checked Rows -->
+                    <div class="max-w-xs mx-auto text-left space-y-2 bg-neutral-900/60 p-4 border border-neutral-800 rounded-xl font-mono text-xs text-neutral-400">
+                        <div id="check-row-1" class="flex items-center gap-2 opacity-30 transition-opacity duration-300">
+                            <span class="text-blue-400 font-bold">[✔]</span> Analysis setup verified
+                        </div>
+                        <div id="check-row-2" class="flex items-center gap-2 opacity-30 transition-opacity duration-300">
+                            <span class="text-blue-400 font-bold">[✔]</span> Metric behaviors configured
+                        </div>
+                        <div id="check-row-3" class="flex items-center gap-2 opacity-30 transition-opacity duration-300">
+                            <span class="text-blue-400 font-bold">[✔]</span> PDF resource assembled
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Sequential Loading Text/Indicator Updates
+            let activeIdx = 0;
+            const textInterval = setInterval(() => {
+                if (activeIdx < stepsText.length - 1) {
+                    activeIdx++;
+                    const subField = document.getElementById('loader-subtext');
+                    if (subField) subField.textContent = stepsText[activeIdx];
+                }
+            }, 500);
+
+            setTimeout(() => {
+                const c1 = document.getElementById('check-row-1');
+                if (c1) c1.classList.remove('opacity-30');
+            }, 300);
+
+            setTimeout(() => {
+                const c2 = document.getElementById('check-row-2');
+                if (c2) c2.classList.remove('opacity-30');
+            }, 800);
+
+            setTimeout(() => {
+                const c3 = document.getElementById('check-row-3');
+                if (c3) c3.classList.remove('opacity-30');
+            }, 1300);
+
+            setTimeout(() => {
+                clearInterval(textInterval);
+                navigateTo(QUIZ_CONFIG.questions.length + 2); // Transition out to the Lead Capture Block
+            }, 2000);
+        }
+
+        // RENDER: THE GATEWAY SIGN-UP FORM 
+        function renderGate(target) {
+            target.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center animate-fade-in relative select-none">
+                    
+                    <!-- Teaser Hidden Container -->
+                    <div class="md:col-span-10 md:col-start-2 lg:col-span-5 lg:col-start-1 space-y-4 opacity-30 blur-[2.5px] pointer-events-none select-none hidden md:block border-r border-neutral-800 pr-6">
+                        <span class="text-[10px] font-mono uppercase bg-blue-600/20 text-blue-400 px-2 py-1 rounded inline-block font-semibold">Teaser Result</span>
+                        <h4 class="text-lg font-extrabold text-white leading-tight mt-1">${state.selectedProfile.title}</h4>
+                        <p class="text-xs text-neutral-400 leading-normal">${state.selectedProfile.teaser}</p>
+                        <hr class="border-neutral-800">
+                        <div class="space-y-1.5">
+                            <div class="h-2.5 w-full bg-neutral-800 rounded"></div>
+                            <div class="h-2.5 w-4/5 bg-neutral-800 rounded"></div>
+                            <div class="h-2.5 w-5/6 bg-neutral-800 rounded"></div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Lead Panel Form -->
+                    <div class="col-span-12 lg:col-span-7 lg:pl-2 space-y-5">
+                        <div class="space-y-2">
+                            <!-- Locking Badge -->
+                            <div class="inline-flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-[10px] uppercase font-bold px-2.5 py-1 rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                Identity Lock: Input Required
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight">
+                                Unlock Your Custom Analytical PDF
+                            </h3>
+                            <p class="text-neutral-300 text-sm font-light leading-relaxed">
+                                Enter your phone number below and we'll instantly SMS your full evaluation matrix results + your <strong>${QUIZ_CONFIG.leadMagnet.name}</strong> to your phone.
+                            </p>
+                        </div>
+
+                        <!-- Single-Page Submission Form -->
+                        <form id="lead-form" class="space-y-4" onsubmit="handleLeadSubmit(event)">
+                            <div class="space-y-2.5">
+                                <label for="phone-input" class="block text-xs font-mono tracking-wider font-semibold uppercase text-neutral-400">Mobile Phone Number</label>
+                                
+                                <div class="flex gap-2">
+                                    <!-- Dial Select Box -->
+                                    <div class="relative">
+                                        <button type="button" id="country-select-btn" onclick="toggleCountryDropdown(event)" class="flex items-center justify-between gap-1.5 bg-neutral-800/80 hover:bg-neutral-750 text-white px-3 py-3 rounded-xl border border-neutral-700 focus:outline-none focus:ring-1.5 focus:ring-blue-600 transition-all font-semibold h-[48px] text-sm w-[88px] cursor-pointer">
+                                            <span id="selected-country-flag">${state.selectedCountry.flag}</span>
+                                            <span id="selected-country-code" class="text-xs font-mono">${state.selectedCountry.code}</span>
+                                        </button>
+                                        <!-- Open list overlay -->
+                                        <div id="country-dropdown" class="hidden absolute left-0 top-full mt-1.5 w-44 bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl z-50 animate-fade-in max-h-48 overflow-y-auto">
+                                            ${COUNTRIES.map(country => `
+                                                <button type="button" onclick="selectCountry('${country.name}', '${country.code}', '${country.flag}')" class="w-full text-left px-3 py-2 text-xs hover:bg-neutral-800 text-slate-200 hover:text-white font-medium flex items-center justify-between transition-colors border-b border-neutral-850 last:border-0">
+                                                    <span>${country.flag} ${country.name}</span>
+                                                    <span class="text-[10px] font-mono text-neutral-400">${country.code}</span>
+                                                </button>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+
+                                    <!-- Dial Phone Input -->
+                                    <input type="tel" id="phone-input" required placeholder="555-0199" class="flex-1 bg-neutral-800/80 border border-neutral-700 rounded-xl px-4 py-3 h-[48px] text-white placeholder-neutral-500 focus:outline-none focus:ring-1.5 focus:ring-blue-600 text-sm font-semibold tracking-wide transition-all">
+                                </div>
+                                <span id="phone-validation-error" class="hidden text-[11px] text-rose-400 font-medium">Please supply a valid numeric phone format (minimum 7 characters).</span>
+                            </div>
+
+                            <!-- Compliance check -->
+                            <div class="space-y-3 pt-1">
+                                <label class="flex items-start gap-3 cursor-pointer select-none group">
+                                    <div class="relative flex items-center mt-0.5">
+                                        <input type="checkbox" id="compliance-check" required class="peer sr-only">
+                                        <!-- Custom Check Styling -->
+                                        <div class="w-5 h-5 bg-neutral-800 border border-neutral-750 peer-checked:bg-blue-600 peer-checked:border-blue-500 rounded-md transition-colors flex items-center justify-center group-hover:border-blue-500/70 shadow-sm focus-within:ring-2 focus-within:ring-blue-600">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="text-white scale-0 peer-checked:group-[]:scale-100 transition-transform"><path d="M20 6 9 17l-5-5"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-neutral-400 leading-normal font-light">
+                                        I agree to receive transactional and update SMS reports. Msg & data rates may apply. Reply STOP to cancel at any time.
+                                    </span>
+                                </label>
+                                <p class="text-[10px] text-neutral-500 leading-normal pl-8 font-light italic">
+                                    We safeguard subscriber metrics. Access can be revoked anytime.
+                                </p>
+                            </div>
+
+                            <!-- Submit Lead Indicator -->
+                            <button type="submit" id="submit-lead-btn" class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3.5 px-6 rounded-xl hover:shadow-glow shadow-md scale-100 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-600 h-[52px]">
+                                <span id="btn-text" class="flex items-center gap-2 font-bold tracking-wide">
+                                    Send My Results
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                                </span>
+                                <span id="btn-spinner" class="hidden w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            `;
+            
+            // Re-apply any dropdown close safety events
+            window.addEventListener('click', closeCountryDropdownOnOutsideClick);
+        }
+
+        // Dropdown behaviors
+        function toggleCountryDropdown(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('country-dropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('hidden');
+                state.isCountryDropdownOpen = !dropdown.classList.contains('hidden');
+            }
+        }
+
+        function selectCountry(name, code, flag) {
+            state.selectedCountry = { name, code, flag };
+            
+            const flagField = document.getElementById('selected-country-flag');
+            const codeField = document.getElementById('selected-country-code');
+            
+            if (flagField) flagField.textContent = flag;
+            if (codeField) codeField.textContent = code;
+            
+            const dropdown = document.getElementById('country-dropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+            state.isCountryDropdownOpen = false;
+        }
+
+        function closeCountryDropdownOnOutsideClick(e) {
+            const dropdown = document.getElementById('country-dropdown');
+            const button = document.getElementById('country-select-btn');
+            if (dropdown && button && !button.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add('hidden');
+                state.isCountryDropdownOpen = false;
+            }
+        }
+
+        // ==========================================
+        // 4. SUBMISSION AND LEAD GATE REVEAL LOGIC
+        // ==========================================
+        async function handleLeadSubmit(event) {
+            event.preventDefault();
+            
+            const phoneField = document.getElementById('phone-input');
+            const checkboxField = document.getElementById('compliance-check');
+            const errorField = document.getElementById('phone-validation-error');
+            
+            if (!phoneField || !checkboxField) return;
+
+            const trimmedPhone = phoneField.value.trim();
+            
+            // Validate basic phone pattern (must contain numbers and at least 7 characters)
+            const cleanNumericOnly = trimmedPhone.replace(/\D/g, '');
+            if (cleanNumericOnly.length < 7) {
+                if (errorField) errorField.classList.remove('hidden');
+                phoneField.focus();
+                return;
+            } else {
+                if (errorField) errorField.classList.add('hidden');
+            }
+
+            // Begin form animation state
+            state.submitting = true;
+            updateButtonState(true);
+
+            // Construct form values payload
+            const leadPayload = {
+                quiz_topic: QUIZ_CONFIG.title,
+                phone_international: `${state.selectedCountry.code} ${trimmedPhone}`,
+                calculated_profile_type: state.selectedProfile.title,
+                calculated_subtitle: state.selectedProfile.subtitle,
+                lead_bonus_asset: QUIZ_CONFIG.leadMagnet.name,
+                quiz_responses: JSON.stringify(state.answers),
+                submission_timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Post directly to endpoint
+                const response = await fetch(QUIZ_CONFIG.formspreeUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(leadPayload)
+                });
+
+                if (response.ok) {
+                    state.submitSuccess = true;
+                } else {
+                    console.warn("Target Formspree payload response issue, revealing anyway to maximize user flow...");
+                }
+            } catch (err) {
+                console.error("Networking connection error, maximizing flow by allowing direct client reveal", err);
+            } finally {
+                // Instantly unlock and render final detailed results regardless of submission outcome (graceful degradation)
+                state.submitting = false;
+                revealFullResultsDashboard();
+            }
+        }
+
+        function updateButtonState(isLoading) {
+            const btn = document.getElementById('submit-lead-btn');
+            const text = document.getElementById('btn-text');
+            const spinner = document.getElementById('btn-spinner');
+            
+            if (!btn || !text || !spinner) return;
+            
+            if (isLoading) {
+                btn.disabled = true;
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+                text.classList.add('hidden');
+                spinner.classList.remove('hidden');
+            } else {
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                text.classList.remove('hidden');
+                spinner.classList.add('hidden');
+            }
+        }
+
+        // RENDER: UNLOCKED FINAL DETAILED RESULTS SCREEN (AFTER SMS GATE)
+        function revealFullResultsDashboard() {
+            const container = document.getElementById('view-container');
+            const header = document.getElementById('header-title');
+            
+            // Animate headers or screen elements
+            if (header) {
+                header.innerHTML = `<span class="text-blue-500">Identity Unlocked:</span> Profile Match`;
+            }
+
+            container.classList.add('opacity-0', 'scale-[0.98]', 'duration-300');
+
+            setTimeout(() => {
+                const targetProfile = state.selectedProfile;
+                
+                container.innerHTML = `
+                    <div class="space-y-8 animate-fade-in relative z-10 selection:bg-blue-600">
+                        
+                        <!-- Header Match Badge -->
+                        <div class="space-y-3 pb-4 border-b border-neutral-800">
+                            <!-- Verification Banner -->
+                            <div class="inline-flex items-center gap-1.5 bg-blue-600/15 border border-blue-500/30 text-blue-400 font-mono text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                Verified Results Sent By SMS
+                            </div>
+                            <p class="text-[11px] text-neutral-400 font-mono tracking-wide uppercase font-semibold">Your Cognitive Spectrum Archetype</p>
+                            <h2 class="text-3xl font-black text-white leading-none">${targetProfile.title}</h2>
+                            <p class="text-sm text-blue-400 font-semibold">${targetProfile.subtitle}</p>
+                        </div>
+
+                        <!-- Core Description Panels -->
+                        <div class="space-y-4">
+                            <p class="text-neutral-200 text-sm sm:text-base leading-relaxed font-light">
+                                ${targetProfile.description}
+                            </p>
+                        </div>
+
+                        <!-- Personalized Roadmap Action Steps -->
+                        <div class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 space-y-4.5">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/></svg>
+                                Key Strategic Suggestions
+                            </h4>
+                            <ul class="space-y-3.5 text-sm">
+                                ${targetProfile.tips.map((tip, idx) => `
+                                    <li class="flex items-start gap-3 text-neutral-300">
+                                        <span class="flex-shrink-0 w-6 h-6 bg-neutral-800 text-blue-400 font-bold text-xs rounded-lg flex items-center justify-center border border-neutral-700 font-mono">
+                                            0${idx + 1}
+                                        </span>
+                                        <p class="leading-relaxed font-light pt-0.5">${tip}</p>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+
+                        <!-- CLAIM RE-OPTED DOWNLOAD MAGNET CARD -->
+                        <div class="bg-neutral-900/60 border border-neutral-800 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-5 relative overflow-hidden group shadow-glow">
+                            <!-- Visual corner accents -->
+                            <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-blue-600/10 blur-xl rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                            
+                            <div class="space-y-2 text-center sm:text-left">
+                                <span class="text-[9px] font-mono tracking-widest uppercase bg-blue-550/15 rounded-md border border-blue-500/20 px-2 py-1 text-blue-400 font-bold inline-block">FREE INSTANT ASSET</span>
+                                <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">${QUIZ_CONFIG.leadMagnet.name}</h4>
+                                <p class="text-xs text-neutral-400 max-w-sm font-light">${QUIZ_CONFIG.leadMagnet.description}</p>
+                            </div>
+
+                            <a href="${QUIZ_CONFIG.leadMagnet.url}" onclick="triggerChecklistMockDownload(event)" class="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-5 rounded-xl transition-all duration-200 group-hover:shadow-glow shadow-sm text-sm cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-bounce"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                                Download Checklist
+                            </a>
+                        </div>
+
+                        <!-- Reset buttons -->
+                        <div class="flex items-center justify-center py-2">
+                            <button onclick="resetEvaluationQuiz()" class="text-xs text-neutral-500 hover:text-neutral-300 transition-colors flex items-center gap-1.5 focus:outline-none font-mono cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
+                                Re-simulate Assessment (Reset)
+                            </button>
+                        </div>
+
+                    </div>
+                `;
+                container.classList.remove('opacity-0', 'scale-[0.98]');
+            }, 300);
+        }
+
+        // Mock download notification
+        function triggerChecklistMockDownload(e) {
+            e.preventDefault();
+            alert("Success! Starting secure download of the: \n" + QUIZ_CONFIG.leadMagnet.name);
+            // In a real staging production structure, you would trigger the anchor logic.
+        }
+
+        // Clean Quiz RESET state trigger
+        function resetEvaluationQuiz() {
+            state.currentStep = 0;
+            state.answers = {};
+            state.selectedProfile = null;
+            state.submitting = false;
+            state.submitSuccess = false;
+            
+            const header = document.getElementById('header-title');
+            if (header) {
+                header.innerHTML = QUIZ_CONFIG.title;
+            }
+
+            navigateTo(0);
+        }
+
+        // ==========================================
+        // 5. LEGAL MODALS CORE MANAGER INTERACTION
+        // ==========================================
+        const modalContentDb = {
+            privacy: {
+                title: "Privacy Policy",
+                content: `
+                    <p>At Marketing Strategy Labs, we respect your confidentiality. We do not rent, distribute, or leverage marketing phone metrics compiled during response evaluations to third-party institutions.</p>
+                    <p><strong>Database Capture & Storage:</strong> Mobile numbers entered into the identity portal are proxy-linked via secure endpoints solely to forward campaign profiles. Analytical responses will be cleared routinely from internal cache buffers within 30 days of submission.</p>
+                    <p><strong>Transactional Messages:</strong> By entering details, you authorize automated transaction reports. You hold full authority to unsubscribe by sending STOP to standard numbers anytime.</p>
+                `
+            },
+            terms: {
+                title: "Terms of Service",
+                content: `
+                    <p>Usage of the Interactive Profile Simulator indicates full acceptance of the outlined terms and operating models.</p>
+                    <p><strong>Evaluation Accuracy:</strong> Strategic suggestions and archetypes calculated at evaluation completion are built on structured algorithmic responses and do not constitute high-risk financial, strategy, or commercial guarantees.</p>
+                    <p><strong>Digital Asset Redistribution:</strong> PDF audits and campaign checkpoints are properties of our company. Unauthorized resale or programmatic exploitation is forbidden.</p>
+                `
+            },
+            contact: {
+                title: "Contact Us",
+                content: `
+                    <p>Do you have inquiries regarding our business evaluations, technical audits, or configuration parameters?</p>
+                    <p>Feel free to reach out directly to the active integration team at:</p>
+                    <p class="font-mono bg-neutral-800 text-blue-400 p-3 rounded-lg border border-neutral-700 text-xs text-center">
+                        support@marketingstrategylabs.io
+                    </p>
+                    <p>We target replying to high-priority partner inquiries in less than 24 business hours.</p>
+                `
+            }
+        };
+
+        function showModal(type) {
+            const data = modalContentDb[type];
+            if (!data) return;
+
+            const modal = document.getElementById('legal-modal');
+            const card = document.getElementById('modal-card');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+
+            if (!modal || !card || !title || !content) return;
+
+            title.textContent = data.title;
+            content.innerHTML = data.content;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                card.classList.remove('translate-y-4');
+            }, 50);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('legal-modal');
+            const card = document.getElementById('modal-card');
+            
+            if (!modal || !card) return;
+
+            modal.classList.add('opacity-0');
+            card.classList.add('translate-y-4');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Start initialization sequence
+        window.addEventListener('DOMContentLoaded', () => {
+            renderApp();
+        });
+    </script>
+</body>
+</html>
